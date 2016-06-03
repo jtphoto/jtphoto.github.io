@@ -949,7 +949,7 @@ img {
 .img-thumbnail {
   display: inline-block;
   width: 100% \9;
-  max-width: 100%;
+  max-width: 50%;
   height: auto;
   padding: 4px;
   line-height: 1.42857143;
