@@ -84,6 +84,9 @@ sub {
   bottom: -.25em;
 }
 img {
+  
+  -webkit-align-self: center; /* Safari 7.0+ */
+    align-self: center;
   border: 0;
 }
 svg:not(:root) {
