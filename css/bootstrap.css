@@ -960,6 +960,17 @@ img {
        -o-transition: all .2s ease-in-out;
           transition: all .2s ease-in-out;
 }
+.img-logo {
+  display: inline-block;
+  width: 100% \9;
+  max-width: 100%;
+  height: auto;
+  padding: 4px;
+
+  -webkit-transition: all .2s ease-in-out;
+       -o-transition: all .2s ease-in-out;
+          transition: all .2s ease-in-out;
+}
 .img-circle {
   border-radius: 50%;
 }
