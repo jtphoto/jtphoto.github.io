@@ -950,7 +950,7 @@ img {
   display: inline-block;
   width: 100% \9;
   max-width: 100%;
-  height:500px;
+  height: auto;
   padding: 4px;
   line-height: 1.42857143;
   background:#fff;
