@@ -942,6 +942,10 @@ img {
   max-width: 100%;
   height: auto;
 }
+.img-logo{
+  max-width: 40%;
+  vertical-align: middle;
+}
 .img-rounded {
   border-radius: 6px;
 }
