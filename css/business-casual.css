@@ -58,6 +58,10 @@ hr {
     min-width: 100%;
 }
 
+.img-logo{
+    min-width: 50%;
+}
+
 .brand-before,
 .brand-name {
     text-transform: capitalize;
