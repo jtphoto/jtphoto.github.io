@@ -55,7 +55,8 @@ hr {
 }
 
 .img-full {
-    max-width: 100%;
+    max-width: 70%;
+    margin: 0 auto;
 }
 
 .img-logo{
