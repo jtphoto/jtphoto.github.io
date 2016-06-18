@@ -1,3 +1,44 @@
+<?php
+	if (isset($_POST["submit"])) {
+		$name = $_POST['name'];
+		$email = $_POST['email'];
+		$number = $_POST['number'];
+		$message = $_POST['message'];
+		$from = 'Demo Contact Form'; 
+		$to = 'tsaitiffany@utexas.edu'; 
+		$subject = 'Message from Contact Demo ';
+		
+		$body ="From: $name\n E-Mail: $email\n Message:\n $message";
+		// Check if name has been entered
+		if (!$_POST['name']) {
+			$errName = 'Please enter your name';
+		}
+		
+		// Check if email has been entered and is valid
+		if (!$_POST['email'] || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+			$errEmail = 'Please enter a valid email address';
+		}
+		
+		// Check if phone number has been entered and is valid
+		if (!$_POST['number']) {
+		  $errNumber = 'Please enter your phone number';
+		}
+		
+		//Check if message has been entered
+		if (!$_POST['message']) {
+			$errMessage = 'Please enter your message';
+		}
+// If there are no errors, send the email
+if (!$errName && !$errEmail && !$errMessage && !$errNumber) {
+	if (mail ($to, $subject, $body, $from)) {
+		$result='<div class="alert alert-success">Thank You! I will be in touch</div>';
+	} else {
+		$result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later.</div>';
+	}
+}
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -106,25 +147,32 @@
                         <div class="row">
                             <div class="form-group col-lg-4">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="First & Last Name" value="<?php echo htmlspecialchars($_POST['name']); ?>">
+                                <?php echo "<p class='text-danger'>$errName</p>";?>
                             </div>
                             <div class="form-group col-lg-4">
                                 <label for="email">Email Address</label>
-                                <input type="email" class="form-control">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="<?php echo htmlspecialchars($_POST['email']); ?>">
+                                <?php echo "<p class='text-danger'>$errEmail</p>";?>
                             </div>
                             <div class="form-group col-lg-4">
                                 <label for="number">Phone Number</label>
-                                <input type="tel" class="form-control">
+                                <input type="tel" class="form-control" id="number" name="number" placeholder="123-456-7890" value="<?php echo htmlspecialchars($_POST['number']); ?>">
+                                <?php echo "<p class='text-danger'>$errNumber</p>";?>
                             </div>
                             <div class="clearfix"></div>
                             <div class="form-group col-lg-12">
                                 <label for="message">Message</label>
-                                <textarea class="form-control" rows="6"></textarea>
+                                <textarea class="form-control" rows="6"><?php echo htmlspecialchars($_POST['message']);?></textarea>
+                                <?php echo "<p class='text-danger'>$errMessage</p>";?>
                             </div>
                             <div class="form-group col-lg-12">
-                                <input type="hidden" name="save" value="contact">
+                                <input type="submit" name="submit" id="submit" value="Send">
                                 <button type="submit" class="btn btn-default">Submit</button>
                             </div>
+                            <div class="form-group col-lg-12">
+						    	<?php echo $result; ?>	
+                            </div>                            
                         </div>
                     </form>
                 </div>
