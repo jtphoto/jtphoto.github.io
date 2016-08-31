@@ -60,6 +60,10 @@ hr {
     margin: 0 auto;
 }
 
+.img-about {
+    max-width: 80%;
+}
+
 .img-logo{
     width: 228px;
     height: 86px;
